@@ -1135,7 +1135,7 @@ function validate_and_submit_forms(form_object)
         var captcha = this_form.find("#form-captcha-img");
         if (captcha.length > 0 && this_form.is(":visible")) {
             var d = new Date().getTime();
-            captcha.replaceWith('<img id="form-captcha-img" src="assets/php/form_captcha/captcha_img.php?t='+d+'" style="display:none">');
+            captcha.replaceWith('<img id="form-captcha-img" ' + 'src="Content/Template/php/form_captcha/captcha_img.php?' + (new Date).getTime() + '">');
             this_form.find("#form-captcha").val("");
             setTimeout(function() { this_form.find("#form-captcha-img").show(); }, 500);
         }
